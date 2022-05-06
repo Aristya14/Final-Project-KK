@@ -142,13 +142,7 @@ public function index(){
     return "Halo ini adalah method index, dalam controller MahasiswaController.";
 }
 ```
-atau jika kita membuat halaman view bisa menuliskan syntax berikut pada `MahasiswaController.php`
-```php
-public function index(){
-    return view ('mahasiswa');
-}
-```
-setelah itu membuat halaman view pada dengan membuat file baru 'mahasiswa.blade.php' di folder 'resource/views', berikut isi dari file view mahasiswa.blade.php:
+atau jika kita membuat halaman view , bisa dengan membuat file baru terlebih dahulu, disini dberi nama 'mahasiswa.blade.php' di folder 'resource/views', berikut isi dari file view mahasiswa.blade.php:
 ```html
 <!DOCTYPE html>
 <html>
@@ -161,7 +155,13 @@ setelah itu membuat halaman view pada dengan membuat file baru 'mahasiswa.blade.
   <p>ini adalah method index</p>
   <h1>Dalam controller MahasiswaController</h1>
 </body>
-</html>
+</html
+```
+Setelah itu pada file `MahasiswaController.php` dapat dituliskan syntax berikut:
+```php
+public function index(){
+    return view ('mahasiswa');
+}
 ```
 Maka kita sudah dapat memanggil method/function index pada controller melalui route dosen. Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`
 

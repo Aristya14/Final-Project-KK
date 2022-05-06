@@ -144,7 +144,6 @@ Berikut adalah method yang dapat dilakukan oleh Resource Controller :
 | DELETE | /mahasiswa/{id} | destroy | mahasiswa.destroy |
 
 ## Langkah Kedua Memanggil Controller
-### Cara Pertama
 Penggunaan controller yang sederhana, controller dapat dipanggil melalui route pada file `web.php` pada direktori : `laravel-tutorial/routes/web.php`.
 Disini kita akan menambahkan route baru untuk memanggil controller. Perhatikan syntax berikut :
 
@@ -182,6 +181,24 @@ public function index(){
     return view ('mahasiswa');
 }
 ```
-Maka kita sudah dapat memanggil method/function index pada controller melalui route dosen. Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`
+Maka kita sudah dapat memanggil method/function index pada controller melalui route dosen. Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`.
 
-### Cara Kedua
+### Cara lain penulisan route
+ selain dapat menuliskan dengan syntax diatas, terdapat cara penulisan lain yaitu:
+ 
+ Pertama, buka file 'app/Providers/RouteServiceProvider.php'
+ Kedua, Tambahkan line berikut:
+ ``` php
+ protected $namespace = 'App\Http\Controllers'; 
+ ```
+ Ketiga, tambahkan syntax `->namespace($this->namespace)` di `function boot` seperti berikut:
+ 
+ Setelah itu, pada `web.php`, dapat menuliskan route berikut:
+ ``` php
+ Route::get('/mahasiswa', 'MahasiswaController@index');
+ ```
+ atau jika menggunakan CRUD dapat menggunakan:
+ ``` php
+ Route::resource('/mahasiswa', 'MahasiswaController');
+ ```
+ 

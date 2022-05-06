@@ -4,6 +4,7 @@
 2. [Konsep](https://github.com/Aristya14/coba/blob/main/Laravel-Controller.md#Konsep)
 3. [Langkah-Langkah](https://github.com/Aristya14/coba/blob/main/Laravel-Controller.md#Langkah-langkah)
     - [Langkah Pertama](https://github.com/Aristya14/coba/blob/main/Laravel-Controller.md#Langkah-Pertama-Membuat-file-Controller)
+    - [Langkah Kedua](https://github.com/Aristya14/coba/blob/main/Laravel-Controller.md#Langkah-Kedua-Memanggil-Controller)
 
 
 # Pengertian
@@ -142,7 +143,7 @@ Berikut adalah method yang dapat dilakukan oleh Resource Controller :
 | PUT/PATCH | /mahasiswa/{id} | update | mahasiswa.update |
 | DELETE | /mahasiswa/{id} | destroy | mahasiswa.destroy |
 
-## Langkah Kedua : Memanggil Controller
+## Langkah Kedua Memanggil Controller
 ### Cara Pertama
 Penggunaan controller yang sederhana, controller dapat dipanggil melalui route pada file `web.php` pada direktori : `laravel-tutorial/routes/web.php`.
 Disini kita akan menambahkan route baru untuk memanggil controller. Perhatikan syntax berikut :

@@ -162,10 +162,11 @@ public function index(){
     return "Halo ini adalah method index, dalam controller MahasiswaController.";
 }
 ```
-maka tampilannya adalah sebagai berikut:
+Maka kita sudah dapat memanggil method/function index pada controller melalui route dosen. Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`.
+tampilannya adalah sebagai berikut:
 ![This is an image](https://github.com/Aristya14/coba/blob/main/dokumentasi/tanpa%20view.png)
 
-atau jika kita membuat halaman view , bisa dengan membuat file baru terlebih dahulu, disini dberi nama 'mahasiswa.blade.php' di folder 'resource/views', berikut isi dari file view mahasiswa.blade.php:
+atau jika kita membuat halaman view , bisa dengan membuat file baru terlebih dahulu, disini dberi nama `mahasiswa.blade.php` di folder `resource/views`, berikut isi dari file view mahasiswa.blade.php:
 ```html
 <!DOCTYPE html>
 <html>
@@ -186,9 +187,10 @@ public function index(){
     return view ('mahasiswa');
 }
 ```
+
 hasilnya:
 ![This is an image](https://github.com/Aristya14/coba/blob/main/dokumentasi/dengan%20view.png)
-Maka kita sudah dapat memanggil method/function index pada controller melalui route dosen. Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`.
+
 
 ### Cara lain penulisan route
  selain dapat menuliskan dengan syntax diatas, terdapat cara penulisan lain yaitu:

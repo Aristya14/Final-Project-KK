@@ -155,18 +155,18 @@ Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 
 dan tambahkan `use App\Http\Controllers\MahasiswaController;` pada file web.php dalam routes
 
-Maksud dari syntax di atas adalah pada saat URL “mahasiswa” di akses, maka kita memerintahkan untuk menjalankan method/function `index` yang ada dalam controller `MahasiswaController`. Karena tadi kita membuat file controller tanpa template resource method controller yang tersedia maka kita harus membuat method nya terlebih dahulu pada file controller `MahasiswaController.php`
+Maksud dari syntax di atas adalah pada saat URL “mahasiswa” di akses, maka kita memerintahkan untuk menjalankan method/function `index` yang ada dalam controller `MahasiswaController`.
 
 ```php
 public function index(){
     return "Halo ini adalah method index, dalam controller MahasiswaController.";
 }
 ```
-Maka kita sudah dapat memanggil method/function index pada controller melalui route dosen. Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`.
+Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`.
 tampilannya adalah sebagai berikut:
 ![This is an image](https://github.com/Aristya14/coba/blob/main/dokumentasi/tanpa%20view.png)
 
-atau jika kita membuat halaman view , bisa dengan membuat file baru terlebih dahulu, disini dberi nama `mahasiswa.blade.php` di folder `resource/views`, berikut isi dari file view mahasiswa.blade.php:
+atau jika kita membuat halaman view , bisa dengan membuat file baru terlebih dahulu, disini dberi nama `mahasiswa.blade.php` di folder `resource/views`, berikut isi dari file view `mahasiswa.blade.php`:
 ```html
 <!DOCTYPE html>
 <html>
@@ -181,6 +181,7 @@ atau jika kita membuat halaman view , bisa dengan membuat file baru terlebih dah
 </body>
 </html
 ```
+
 Setelah itu pada file `MahasiswaController.php` dapat dituliskan syntax berikut:
 ```php
 public function index(){

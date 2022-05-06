@@ -3,7 +3,7 @@
 1. [Pengertian](https://github.com/Aristya14/coba/blob/main/Laravel-Controller.md#pengertian)
 2. [Konsep](https://github.com/Aristya14/coba/blob/main/Laravel-Controller.md#Konsep)
 3. [Langkah-Langkah](https://github.com/Aristya14/coba/blob/main/Laravel-Controller.md#Langkah-langkah)
-    - [Langkah Pertama](https://github.com/Aristya14/coba/blob/main/Laravel-Controller.md#Langkah-Pertama-:-Membuat-file-Controller)
+    - [Langkah Pertama](https://github.com/Aristya14/coba/blob/main/Laravel-Controller.md#Langkah-Pertama-Membuat-file-Controller)
 
 
 # Pengertian
@@ -13,7 +13,7 @@ Laravel Controller merupakan salah satu bagian dimana seluruh fungsional web dib
 Salah satu contoh aktivitas pada controller adalah aktivitas CRUD (Create, Read, Update, Delete).
 
 # Langkah-Langkah
-## Langkah Pertama : Membuat file Controller
+## Langkah Pertama Membuat file Controller
 Ada 2 cara dalam membuat controller pada laravel. Yang pertama, dengan cara membuat langsung file controller barunya di dalam folder app/Http/Controllers. Sedangkan cara yang kedua, dengan menggunakan perintah php artisan dari laravel.
 ### Cara Pertama : membuat file secara manual di dalam folder app/Http/Controllers
 Kita langsung membuat file controller baru pada laravel dengan membuat langsung filenya di dalam folder controllers. Di sini kita akan mengikuti format penulisan pada laravel, jadi nama file controllernya dibuat dengan huruf besar di awal Controllernya. Misalnya kita akan membuat controller dosen, buat file baru dengan nama DosenController.php dalam folder controllers. Berikut adalah lokasi directorinya pada kasus ini : laravel-tutorial/app/Http/Controllers/DosenController.php

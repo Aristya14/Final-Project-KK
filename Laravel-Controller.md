@@ -125,6 +125,7 @@ Berikut adalah method yang dapat dilakukan oleh Resource Controller :
 | DELETE | /mahasiswa/{id} | destroy | mahasiswa.destroy |
 
 ## Langkah Kedua : Memanggil Controller
+### Cara Pertama
 Penggunaan controller yang sederhana, controller dapat dipanggil melalui route pada file `web.php` pada direktori : `laravel-tutorial/routes/web.php`.
 Disini kita akan menambahkan route baru untuk memanggil controller. Perhatikan syntax berikut :
 
@@ -141,4 +142,27 @@ public function index(){
     return "Halo ini adalah method index, dalam controller MahasiswaController.";
 }
 ```
+atau jika kita membuat halaman view bisa menuliskan syntax berikut pada `MahasiswaController.php`
+```php
+public function index(){
+    return view ('mahasiswa');
+}
+```
+setelah itu membuat halaman view pada dengan membuat file baru 'mahasiswa.blade.php' di folder 'resource/views', berikut isi dari file view mahasiswa.blade.php:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>View Mahasiswa</title>
+</head>
+<body>
+  <h1>Halo ini view Mahasiswa</h1>
+  <p>ini adalah method index</p>
+  <h1>Dalam controller MahasiswaController</h1>
+</body>
+</html>
+```
 Maka kita sudah dapat memanggil method/function index pada controller melalui route dosen. Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`
+
+### Cara Kedua

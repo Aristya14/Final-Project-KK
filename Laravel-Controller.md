@@ -17,7 +17,7 @@ Ada 2 cara dalam membuat controller pada laravel. Yang pertama, dengan cara memb
 Kita langsung membuat file controller baru pada laravel dengan membuat langsung filenya di dalam folder controllers. Di sini kita akan mengikuti format penulisan pada laravel, jadi nama file controllernya dibuat dengan huruf besar di awal Controllernya. Misalnya kita akan membuat controller dosen, buat file baru dengan nama DosenController.php dalam folder controllers. Berikut adalah lokasi directorinya pada kasus ini : laravel-tutorial/app/Http/Controllers/DosenController.php
 ### Cara Kedua : membuat file dengan php artisan
 Cara kedua, kita dapat membuat file controller baru seperti pada cara pertama dengan cara yang lebih mudah. Caranya dengan memanfaatkan php artisan yang terdapat pada laravel. Dengan fitur ini kita dapat membuat serta mengontrol project kita. php artisan adalah fitur unggulan yang ada pada laravel, yang dibuat untuk memudahkan kita dalam pengembangan menggunakan laravel. php artisan untuk membuat file controller baru dapat dibuat dengan syntax berikut yang diketik melalui terminal atau command prompt (CMD)
-``` bash
+``` bash php
 php artisan make:controller MahasiswaController
 ```
 Perintah make:controller di atas adalah perintah dari php artisan untuk membuat controller baru sesuai nama yang diinginkan. Pada kasus ini file controller tersebut bernama MahasiswaController. Maka file controller MahasiswaController.php akan dibuat secara otomatis. Selain itu, dengan memanfaatkan php artisan make:controller ini kita dapat langsung menulis kode sesuai template Resource Controller pada dalam controller dengan menambahkan --resource setelah nama file controller :

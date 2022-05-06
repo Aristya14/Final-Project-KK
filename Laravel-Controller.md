@@ -17,16 +17,16 @@ Ada 2 cara dalam membuat controller pada laravel. Yang pertama, dengan cara memb
 Kita langsung membuat file controller baru pada laravel dengan membuat langsung filenya di dalam folder controllers. Di sini kita akan mengikuti format penulisan pada laravel, jadi nama file controllernya dibuat dengan huruf besar di awal Controllernya. Misalnya kita akan membuat controller dosen, buat file baru dengan nama DosenController.php dalam folder controllers. Berikut adalah lokasi directorinya pada kasus ini : laravel-tutorial/app/Http/Controllers/DosenController.php
 ### Cara Kedua : membuat file dengan php artisan
 Cara kedua, kita dapat membuat file controller baru seperti pada cara pertama dengan cara yang lebih mudah. Caranya dengan memanfaatkan php artisan yang terdapat pada laravel. Dengan fitur ini kita dapat membuat serta mengontrol project kita. php artisan adalah fitur unggulan yang ada pada laravel, yang dibuat untuk memudahkan kita dalam pengembangan menggunakan laravel. php artisan untuk membuat file controller baru dapat dibuat dengan syntax berikut yang diketik melalui terminal atau command prompt (CMD)
-``` bash php
+``` php
 php artisan make:controller MahasiswaController
 ```
 Perintah make:controller di atas adalah perintah dari php artisan untuk membuat controller baru sesuai nama yang diinginkan. Pada kasus ini file controller tersebut bernama MahasiswaController. Maka file controller MahasiswaController.php akan dibuat secara otomatis. Selain itu, dengan memanfaatkan php artisan make:controller ini kita dapat langsung menulis kode sesuai template Resource Controller pada dalam controller dengan menambahkan --resource setelah nama file controller :
-``` bash
+``` php
 php artisan make:controller MahasiswaController --resource
 ```
 
 Berikut adalah DosenController jika dibuat dengan resource :
-``` bash
+``` php
 <?php
 
 namespace App\Http\Controllers;
@@ -113,3 +113,32 @@ class MahasiswaController extends Controller
 }
 
 ```
+Berikut adalah method yang dapat dilakukan oleh Resource Controller :
+| Verb | URL | Action | Route Name |
+|-----------|----------------------|---------|----------------|
+| GET | /mahasiswa | index | mahasiswa.index |
+| GET | /mahasiswa/create | create | mahasiswa.create |
+| POST | /mahasiswa | store | mahasiswa.store |
+| GET | /mahasiswa/{id} | show | mahasiswa.show |
+| GET | /mahasiswa/{id}/edit | edit | mahasiswa.edit |
+| PUT/PATCH | /mahasiswa/{id} | update | mahasiswa.update |
+| DELETE | /mahasiswa/{id} | destroy | mahasiswa.destroy |
+
+## Langkah Kedua : Memanggil Controller
+Penggunaan controller yang sederhana, controller dapat dipanggil melalui route pada file `web.php` pada direktori : `laravel-tutorial/routes/web.php`.
+Disini kita akan menambahkan route baru untuk memanggil controller. Perhatikan syntax berikut :
+
+```php
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+```
+
+dan tambahkan `use App\Http\Controllers\MahasiswaController;` pada file web.php dalam routes
+
+Maksud dari syntax di atas adalah pada saat URL “dosen” di akses, maka kita memerintahkan untuk menjalankan method/function `index` yang ada dalam controller `MahasiswaController`. Karena tadi kita membuat file controller tanpa template resource method controller yang tersedia maka kita harus membuat method nya terlebih dahulu pada file controller `MahasiswaController.php`
+
+```php
+public function index(){
+    return "Halo ini adalah method index, dalam controller MahasiswaController.";
+}
+```
+Maka kita sudah dapat memanggil method/function index pada controller melalui route dosen. Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`

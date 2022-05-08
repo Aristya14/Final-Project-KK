@@ -12,6 +12,7 @@ Laravel Controller merupakan salah satu bagian dimana seluruh fungsional web dib
 
 # Konsep
 Salah satu contoh aktivitas pada controller adalah aktivitas CRUD (Create, Read, Update, Delete).
+![This is an image](https://github.com/Aristya14/coba/blob/main/dokumentasi/mvc_laravel.png)
 
 # Langkah-Langkah
 ## Langkah Pertama Membuat file Controller
@@ -33,6 +34,7 @@ class DosenController extends Controller
 }
 ```
 Pada syntax tersebut, di deklarasikan class controller DosenController, dengan wajib extends Controller dari laravel.
+![This is an image](https://github.com/Aristya14/coba/blob/main/dokumentasi/controller.png)
 
 ### Cara Kedua : membuat file dengan php artisan
 Cara kedua, kita dapat membuat file controller baru seperti pada cara pertama dengan cara yang lebih mudah. Caranya dengan memanfaatkan php artisan yang terdapat pada laravel. Dengan fitur ini kita dapat membuat serta mengontrol project kita. php artisan adalah fitur unggulan yang ada pada laravel, yang dibuat untuk memudahkan kita dalam pengembangan menggunakan laravel. php artisan untuk membuat file controller baru dapat dibuat dengan syntax berikut yang diketik melalui terminal atau command prompt (CMD)
@@ -153,14 +155,18 @@ Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 
 dan tambahkan `use App\Http\Controllers\MahasiswaController;` pada file web.php dalam routes
 
-Maksud dari syntax di atas adalah pada saat URL “dosen” di akses, maka kita memerintahkan untuk menjalankan method/function `index` yang ada dalam controller `MahasiswaController`. Karena tadi kita membuat file controller tanpa template resource method controller yang tersedia maka kita harus membuat method nya terlebih dahulu pada file controller `MahasiswaController.php`
+Maksud dari syntax di atas adalah pada saat URL “mahasiswa” di akses, maka kita memerintahkan untuk menjalankan method/function `index` yang ada dalam controller `MahasiswaController`.
 
 ```php
 public function index(){
     return "Halo ini adalah method index, dalam controller MahasiswaController.";
 }
 ```
-atau jika kita membuat halaman view , bisa dengan membuat file baru terlebih dahulu, disini dberi nama 'mahasiswa.blade.php' di folder 'resource/views', berikut isi dari file view mahasiswa.blade.php:
+Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`.
+tampilannya adalah sebagai berikut:
+![This is an image](https://github.com/Aristya14/coba/blob/main/dokumentasi/tanpa%20view.png)
+
+atau jika kita membuat halaman view , bisa dengan membuat file baru terlebih dahulu, disini dberi nama `mahasiswa.blade.php` di folder `resource/views`, berikut isi dari file view `mahasiswa.blade.php`:
 ```html
 <!DOCTYPE html>
 <html>
@@ -175,13 +181,17 @@ atau jika kita membuat halaman view , bisa dengan membuat file baru terlebih dah
 </body>
 </html
 ```
+
 Setelah itu pada file `MahasiswaController.php` dapat dituliskan syntax berikut:
 ```php
 public function index(){
     return view ('mahasiswa');
 }
 ```
-Maka kita sudah dapat memanggil method/function index pada controller melalui route dosen. Saat dijalankan maka, controller tersebut akan mencetak apa yang direturn oleh function index pada file controller. Berikut adalah hasilnya dengan akses alamat yang dibuat oleh php artisan serve misal `http://127.0.0.1:8000/mahasiswa`.
+
+hasilnya:
+![This is an image](https://github.com/Aristya14/coba/blob/main/dokumentasi/dengan%20view.png)
+
 
 ### Cara lain penulisan route
  selain dapat menuliskan dengan syntax diatas, terdapat cara penulisan lain yaitu:
@@ -192,6 +202,7 @@ Maka kita sudah dapat memanggil method/function index pada controller melalui ro
  protected $namespace = 'App\Http\Controllers'; 
  ```
  Ketiga, tambahkan syntax `->namespace($this->namespace)` di `function boot` seperti berikut:
+ ![This is an image](https://github.com/Aristya14/coba/blob/main/dokumentasi/RouteProvider.png)
  
  Setelah itu, pada `web.php`, dapat menuliskan route berikut:
  ``` php
@@ -201,4 +212,3 @@ Maka kita sudah dapat memanggil method/function index pada controller melalui ro
  ``` php
  Route::resource('/mahasiswa', 'MahasiswaController');
  ```
- 
